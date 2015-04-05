@@ -13,6 +13,15 @@
 		CDB0C5271AD1F20500C4DDA0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDB0C5251AD1F20500C4DDA0 /* LaunchScreen.xib */; };
 		CDB0C53E1AD1F2A500C4DDA0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB0C53D1AD1F2A500C4DDA0 /* ViewController.m */; };
 		CDB0C5431AD1F30200C4DDA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDB0C5411AD1F30200C4DDA0 /* Main.storyboard */; };
+		CDB0C5501AD1F75000C4DDA0 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDB0C5461AD1F75000C4DDA0 /* Raleway-Bold.ttf */; };
+		CDB0C5511AD1F75000C4DDA0 /* Raleway-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDB0C5471AD1F75000C4DDA0 /* Raleway-ExtraBold.ttf */; };
+		CDB0C5521AD1F75000C4DDA0 /* Raleway-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDB0C5481AD1F75000C4DDA0 /* Raleway-ExtraLight.ttf */; };
+		CDB0C5531AD1F75000C4DDA0 /* Raleway-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDB0C5491AD1F75000C4DDA0 /* Raleway-Heavy.ttf */; };
+		CDB0C5541AD1F75000C4DDA0 /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDB0C54A1AD1F75000C4DDA0 /* Raleway-Light.ttf */; };
+		CDB0C5551AD1F75000C4DDA0 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDB0C54B1AD1F75000C4DDA0 /* Raleway-Medium.ttf */; };
+		CDB0C5561AD1F75000C4DDA0 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDB0C54C1AD1F75000C4DDA0 /* Raleway-Regular.ttf */; };
+		CDB0C5571AD1F75000C4DDA0 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDB0C54D1AD1F75000C4DDA0 /* Raleway-SemiBold.ttf */; };
+		CDB0C5581AD1F75000C4DDA0 /* Raleway-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDB0C54E1AD1F75000C4DDA0 /* Raleway-Thin.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +35,16 @@
 		CDB0C53C1AD1F2A500C4DDA0 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		CDB0C53D1AD1F2A500C4DDA0 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CDB0C5421AD1F30200C4DDA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CDB0C5451AD1F75000C4DDA0 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		CDB0C5461AD1F75000C4DDA0 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
+		CDB0C5471AD1F75000C4DDA0 /* Raleway-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraBold.ttf"; sourceTree = "<group>"; };
+		CDB0C5481AD1F75000C4DDA0 /* Raleway-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraLight.ttf"; sourceTree = "<group>"; };
+		CDB0C5491AD1F75000C4DDA0 /* Raleway-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Heavy.ttf"; sourceTree = "<group>"; };
+		CDB0C54A1AD1F75000C4DDA0 /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.ttf"; sourceTree = "<group>"; };
+		CDB0C54B1AD1F75000C4DDA0 /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
+		CDB0C54C1AD1F75000C4DDA0 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
+		CDB0C54D1AD1F75000C4DDA0 /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
+		CDB0C54E1AD1F75000C4DDA0 /* Raleway-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Thin.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,10 +92,28 @@
 		CDB0C5161AD1F20500C4DDA0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CDB0C5441AD1F75000C4DDA0 /* Raleway */,
 				CDB0C5171AD1F20500C4DDA0 /* Info.plist */,
 				CDB0C5181AD1F20500C4DDA0 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CDB0C5441AD1F75000C4DDA0 /* Raleway */ = {
+			isa = PBXGroup;
+			children = (
+				CDB0C5451AD1F75000C4DDA0 /* OFL.txt */,
+				CDB0C5461AD1F75000C4DDA0 /* Raleway-Bold.ttf */,
+				CDB0C5471AD1F75000C4DDA0 /* Raleway-ExtraBold.ttf */,
+				CDB0C5481AD1F75000C4DDA0 /* Raleway-ExtraLight.ttf */,
+				CDB0C5491AD1F75000C4DDA0 /* Raleway-Heavy.ttf */,
+				CDB0C54A1AD1F75000C4DDA0 /* Raleway-Light.ttf */,
+				CDB0C54B1AD1F75000C4DDA0 /* Raleway-Medium.ttf */,
+				CDB0C54C1AD1F75000C4DDA0 /* Raleway-Regular.ttf */,
+				CDB0C54D1AD1F75000C4DDA0 /* Raleway-SemiBold.ttf */,
+				CDB0C54E1AD1F75000C4DDA0 /* Raleway-Thin.ttf */,
+			);
+			path = Raleway;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +173,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDB0C5511AD1F75000C4DDA0 /* Raleway-ExtraBold.ttf in Resources */,
 				CDB0C5271AD1F20500C4DDA0 /* LaunchScreen.xib in Resources */,
 				CDB0C5241AD1F20500C4DDA0 /* Images.xcassets in Resources */,
+				CDB0C5531AD1F75000C4DDA0 /* Raleway-Heavy.ttf in Resources */,
+				CDB0C5501AD1F75000C4DDA0 /* Raleway-Bold.ttf in Resources */,
+				CDB0C5541AD1F75000C4DDA0 /* Raleway-Light.ttf in Resources */,
+				CDB0C5551AD1F75000C4DDA0 /* Raleway-Medium.ttf in Resources */,
+				CDB0C5521AD1F75000C4DDA0 /* Raleway-ExtraLight.ttf in Resources */,
+				CDB0C5581AD1F75000C4DDA0 /* Raleway-Thin.ttf in Resources */,
+				CDB0C5571AD1F75000C4DDA0 /* Raleway-SemiBold.ttf in Resources */,
+				CDB0C5561AD1F75000C4DDA0 /* Raleway-Regular.ttf in Resources */,
 				CDB0C5431AD1F30200C4DDA0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +364,7 @@
 				CDB0C5381AD1F20500C4DDA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
