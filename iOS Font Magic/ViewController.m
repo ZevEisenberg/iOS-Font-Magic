@@ -122,7 +122,7 @@ static NSString* const kRalewayExtraLight = @"Raleway-ExtraLight";
 
 + (UIFont *)sectionHeaderFont
 {
-    return [UIFont fontWithName:kRalewayExtraLight size:24.0f];
+    return [UIFont fontWithName:kRalewayHeavy size:24.0f];
 }
 
 + (NSDictionary *)fontDictionaryWithFontNamed:(NSString *)fontName size:(CGFloat)size tracking:(CGFloat)tracking
