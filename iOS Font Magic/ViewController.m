@@ -75,7 +75,37 @@ static NSString* const kRalewayExtraLight = @"Raleway-ExtraLight";
 
 - (void)configureTrackingLabels
 {
+    NSString *trackingTextTight = self.trackingLabelTight.text;
+    NSString *trackingTextDefault = self.trackingLabelDefault.text;
+    NSString *trackingTextWide = self.trackingLabelWide.text;
 
+    // Tracking of 0 = no tracking
+    // Tracking of 1000 = 1 em wider tracking
+    // Tracking of -1000 = 1 em tighter tracking
+    NSDictionary *attributesTight = [self.class fontDictionaryWithFontNamed:kRalewayRegular
+                                                                       size:18.0f
+                                                                   tracking:-80.0f];
+
+    NSDictionary *attributesDefault = [self.class fontDictionaryWithFontNamed:kRalewayRegular
+                                                                         size:18.0f
+                                                                     tracking:0.0f];
+
+    NSDictionary *attributesWide = [self.class fontDictionaryWithFontNamed:kRalewayRegular
+                                                                      size:18.0f
+                                                                  tracking:250.0f];
+
+    NSAttributedString *stringTight = [[NSAttributedString alloc] initWithString:trackingTextTight
+                                                                      attributes:attributesTight];
+
+    NSAttributedString *stringDefault = [[NSAttributedString alloc] initWithString:trackingTextDefault
+                                                                        attributes:attributesDefault];
+
+    NSAttributedString *stringWide = [[NSAttributedString alloc] initWithString:trackingTextWide
+                                                                     attributes:attributesWide];
+
+    self.trackingLabelTight.attributedText = stringTight;
+    self.trackingLabelDefault.attributedText = stringDefault;
+    self.trackingLabelWide.attributedText = stringWide;
 }
 
 - (void)configureFigureStyleLabels
@@ -93,6 +123,30 @@ static NSString* const kRalewayExtraLight = @"Raleway-ExtraLight";
 + (UIFont *)sectionHeaderFont
 {
     return [UIFont fontWithName:kRalewayExtraLight size:24.0f];
+}
+
++ (NSDictionary *)fontDictionaryWithFontNamed:(NSString *)fontName size:(CGFloat)size tracking:(CGFloat)tracking
+{
+    NSParameterAssert(fontName != nil);
+    NSParameterAssert(fontName.length > 0);
+
+    UIFont *font = [UIFont fontWithName:fontName size:size];
+
+    NSAssert(font != nil, @"Font name must result in a valid font.");
+
+    // Formula for converting Adobe Illustrator/Photoshop Tracking values to a value that’s compatible with NSKernAttributeName.
+    // Adobe software measures tracking in thousandths of an em, where an em is the width of a capital letter M.
+    // NSAttributedString treats the point size of the font as 1 em.
+    CGFloat convertedTracking = font.pointSize * (tracking / 1000.0f);
+
+    NSDictionary *attributes = nil;
+    if ( font ) { // guard against nil font in dictionary
+        attributes = @{
+                       NSFontAttributeName: font,
+                       NSKernAttributeName: @(convertedTracking),
+                       };
+    }
+    return attributes;
 }
 
 @end
