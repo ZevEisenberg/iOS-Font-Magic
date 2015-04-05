@@ -8,6 +8,18 @@
 
 #import "ViewController.h"
 
+// Font Names
+
+static NSString* const kRalewayThin = @"Raleway-Thin";
+static NSString* const kRalewayLight = @"Raleway-Light";
+static NSString* const kRalewayExtraBold = @"Raleway-ExtraBold";
+static NSString* const kRalewayBold = @"Raleway-Bold";
+static NSString* const kRalewayRegular = @"Raleway";
+static NSString* const kRalewaySemiBold = @"Raleway-SemiBold";
+static NSString* const kRalewayHeavy = @"Raleway-Heavy";
+static NSString* const kRalewayMedium = @"Raleway-Medium";
+static NSString* const kRalewayExtraLight = @"Raleway-ExtraLight";
+
 @interface ViewController ()
 
 // Titles
@@ -44,8 +56,10 @@
 
 @implementation ViewController
 
-- (void)awakeFromNib
+- (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+
     [self configureTitleLabels];
     [self configureTrackingLabels];
     [self configureFigureStyleLabels];
@@ -54,7 +68,9 @@
 
 - (void)configureTitleLabels
 {
-
+    for ( UILabel *titleLabel in self.titleLabels ) {
+        titleLabel.font = [self.class sectionHeaderFont];
+    }
 }
 
 - (void)configureTrackingLabels
@@ -70,6 +86,13 @@
 - (void)configureBaselineAndCapHeightLabels
 {
 
+}
+
+// Fonts
+
++ (UIFont *)sectionHeaderFont
+{
+    return [UIFont fontWithName:kRalewayExtraLight size:24.0f];
 }
 
 @end

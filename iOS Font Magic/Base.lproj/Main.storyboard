@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9x-eX-saK">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9x-eX-saK">
                                 <rect key="frame" x="0.0" y="20" width="600" height="680"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Tracking" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqV-H4-kWE">
@@ -212,12 +212,12 @@
                         <outlet property="trackingLabelDefault" destination="gqV-H4-kWE" id="sW0-mi-GEt"/>
                         <outlet property="trackingLabelTight" destination="M3i-7j-JOE" id="rY9-WQ-vkP"/>
                         <outlet property="trackingLabelWide" destination="8yL-EZ-eRD" id="sm8-av-c4p"/>
-                        <outletCollection property="titleLabels" destination="wS9-RJ-wSA" id="Z7m-wk-17Y"/>
-                        <outletCollection property="titleLabels" destination="WWn-KX-JGH" id="WnM-hO-BhE"/>
-                        <outletCollection property="titleLabels" destination="R9e-Os-sPE" id="Ict-zv-Euv"/>
                         <outletCollection property="capHeightNumberLabels" destination="zgr-49-Jkc" id="GYO-DS-JVC"/>
                         <outletCollection property="capHeightNumberLabels" destination="lmg-Lz-5oe" id="zJf-B7-ce9"/>
                         <outletCollection property="capHeightNumberLabels" destination="QAS-bx-CVF" id="z24-9T-AHJ"/>
+                        <outletCollection property="titleLabels" destination="wS9-RJ-wSA" id="ZxQ-eS-NN6"/>
+                        <outletCollection property="titleLabels" destination="WWn-KX-JGH" id="bKv-AT-zvm"/>
+                        <outletCollection property="titleLabels" destination="R9e-Os-sPE" id="q1j-Ka-Coh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1h7-M9-kzd" userLabel="First Responder" sceneMemberID="firstResponder"/>
