@@ -19,7 +19,7 @@
     CGContextSetLineWidth(ctx, CGRectGetHeight(self.bounds));
     CGContextMoveToPoint(ctx, 0.0f, CGRectGetHeight(self.bounds) / 2.0f);
     CGContextAddLineToPoint(ctx, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds) / 2.0f);
-    CGContextSetStrokeColorWithColor(ctx, [UIColor redColor].CGColor);
+    CGContextSetStrokeColorWithColor(ctx, [UIColor colorWithRed:0.927f green:0.352f blue:0.303f alpha:1.0f].CGColor);
     CGContextStrokePath(ctx);
 }
 
