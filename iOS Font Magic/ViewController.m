@@ -45,13 +45,9 @@ static NSString* const kHelveticaNeueRegular = @"HelveticaNeue";
 // Baseline & Cap Height
 
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *capHeightNumberLabels;
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *capHeightOtherLabels;
 
-@property (weak, nonatomic) IBOutlet UILabel *capHeightLabelAlignedToTop1;
-@property (weak, nonatomic) IBOutlet UILabel *capHeightLabelAlignedToBottom;
-@property (weak, nonatomic) IBOutlet UILabel *capHeightLabelAlignedToTop2;
-@property (weak, nonatomic) IBOutlet UILabel *capHeightLabelAlignedToBaseline1;
 @property (weak, nonatomic) IBOutlet UILabel *capHeightLabelAlignedToCapTops;
-@property (weak, nonatomic) IBOutlet UILabel *capHeightLabelAlignedToBaseline2;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *numberCapHeightConstraint;
 
@@ -145,7 +141,16 @@ static NSString* const kHelveticaNeueRegular = @"HelveticaNeue";
 
 - (void)configureBaselineAndCapHeightLabels
 {
+    for ( UILabel *label in self.capHeightNumberLabels ) {
+        label.font = [self.class fontWithName:kRalewayBold
+                                         size:80.0f
+                                   numberCase:kLowerCaseNumbersSelector
+                                numberSpacing:kProportionalNumbersSelector];
+    }
 
+    for ( UILabel *label in self.capHeightOtherLabels ) {
+        label.font = [UIFont fontWithName:kRalewayRegular size:18.0f];
+    }
 }
 
 // Fonts
