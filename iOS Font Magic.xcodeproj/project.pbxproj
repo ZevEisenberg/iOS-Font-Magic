@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD5EA3291AD2223C00494DFD /* DashedHairlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5EA3281AD2223C00494DFD /* DashedHairlineView.m */; };
 		CDB0C5191AD1F20500C4DDA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB0C5181AD1F20500C4DDA0 /* main.m */; };
 		CDB0C51C1AD1F20500C4DDA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB0C51B1AD1F20500C4DDA0 /* AppDelegate.m */; };
 		CDB0C5241AD1F20500C4DDA0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDB0C5231AD1F20500C4DDA0 /* Images.xcassets */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD5EA3271AD2223C00494DFD /* DashedHairlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashedHairlineView.h; sourceTree = "<group>"; };
+		CD5EA3281AD2223C00494DFD /* DashedHairlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashedHairlineView.m; sourceTree = "<group>"; };
 		CDB0C5131AD1F20500C4DDA0 /* iOS Font Magic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Font Magic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB0C5171AD1F20500C4DDA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDB0C5181AD1F20500C4DDA0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -81,6 +84,8 @@
 				CDB0C51B1AD1F20500C4DDA0 /* AppDelegate.m */,
 				CDB0C53C1AD1F2A500C4DDA0 /* ViewController.h */,
 				CDB0C53D1AD1F2A500C4DDA0 /* ViewController.m */,
+				CD5EA3271AD2223C00494DFD /* DashedHairlineView.h */,
+				CD5EA3281AD2223C00494DFD /* DashedHairlineView.m */,
 				CDB0C5411AD1F30200C4DDA0 /* Main.storyboard */,
 				CDB0C5231AD1F20500C4DDA0 /* Images.xcassets */,
 				CDB0C5251AD1F20500C4DDA0 /* LaunchScreen.xib */,
@@ -198,6 +203,7 @@
 				CDB0C51C1AD1F20500C4DDA0 /* AppDelegate.m in Sources */,
 				CDB0C53E1AD1F2A500C4DDA0 /* ViewController.m in Sources */,
 				CDB0C5191AD1F20500C4DDA0 /* main.m in Sources */,
+				CD5EA3291AD2223C00494DFD /* DashedHairlineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
