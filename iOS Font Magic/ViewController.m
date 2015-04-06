@@ -49,7 +49,10 @@ static NSString* const kHelveticaNeueRegular = @"HelveticaNeue";
 
 @property (weak, nonatomic) IBOutlet UILabel *capHeightLabelAlignedToCapTops;
 
+@property (weak, nonatomic) IBOutlet UILabel *numberCapHeightBaselineLabel;
+@property (weak, nonatomic) IBOutlet UIView *numberCapHeightBaselineHairline;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *numberCapHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *numberCapHeightHairlineConstraint;
 
 @end
 
@@ -148,9 +151,49 @@ static NSString* const kHelveticaNeueRegular = @"HelveticaNeue";
                                 numberSpacing:kProportionalNumbersSelector];
     }
 
+    UIFont *accessoryLabelFont = [UIFont fontWithName:kRalewayRegular size:18.0f];
     for ( UILabel *label in self.capHeightOtherLabels ) {
-        label.font = [UIFont fontWithName:kRalewayRegular size:18.0f];
+        label.font = accessoryLabelFont;
     }
+
+    [NSLayoutConstraint constraintWithItem:self.numberCapHeightBaselineLabel
+                                 attribute:NSLayoutAttributeBaseline
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.numberCapHeightBaselineHairline
+                                 attribute:NSLayoutAttributeBottom
+                                multiplier:1.0f
+                                  constant:0.0f].active = YES;
+
+    // Number label is big, and has lowercase numbers, so it looks weird when the top label
+    // is perfectly aligned to the top. So we align its top to the cap height instead.
+
+    // Number Label
+
+    UIFont *numberLabelFont = [self.capHeightNumberLabels[0] font];
+    // Distance from baseline to top of label
+    CGFloat numberAscender = numberLabelFont.ascender;
+
+    // Distance from baseline to top of typical capital letter.
+    // Should be less than ascender.
+    CGFloat numberCapHeight = numberLabelFont.capHeight;
+
+    // Distance from top of label to top of typical capital letter (or number, in this case)
+    CGFloat topOfNumberLabelToTopOfCaps = numberAscender - numberCapHeight;
+
+    // Accessory Label
+
+    // Distance from baseline to top of label
+    CGFloat accessoryAscender = accessoryLabelFont.ascender;
+
+    // Distance from baseline to top of typical capital letter.
+    // Should be less than ascender.
+    CGFloat accessoryCapHeight = accessoryLabelFont.capHeight;
+
+    // Distance from top of label to top of typical capital letter (or number, in this case)
+    CGFloat topOfAccessoryLabelToTopOfCaps = accessoryAscender - accessoryCapHeight;
+
+    self.numberCapHeightConstraint.constant = topOfNumberLabelToTopOfCaps - topOfAccessoryLabelToTopOfCaps;
+    self.numberCapHeightHairlineConstraint.constant = -topOfAccessoryLabelToTopOfCaps;
 }
 
 // Fonts
