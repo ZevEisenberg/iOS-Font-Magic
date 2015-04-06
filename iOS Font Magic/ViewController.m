@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+@import CoreText.SFNTLayoutTypes;
+
 // Font Names
 
 static NSString* const kRalewayThin = @"Raleway-Thin";
@@ -19,6 +21,8 @@ static NSString* const kRalewaySemiBold = @"Raleway-SemiBold";
 static NSString* const kRalewayHeavy = @"Raleway-Heavy";
 static NSString* const kRalewayMedium = @"Raleway-Medium";
 static NSString* const kRalewayExtraLight = @"Raleway-ExtraLight";
+
+static NSString* const kHelveticaNeueRegular = @"HelveticaNeue";
 
 @interface ViewController ()
 
@@ -37,7 +41,6 @@ static NSString* const kRalewayExtraLight = @"Raleway-ExtraLight";
 @property (weak, nonatomic) IBOutlet UILabel *figureStyleLabelProportionalLining;
 @property (weak, nonatomic) IBOutlet UILabel *figureStyleLabelProportionalOldstyle;
 @property (weak, nonatomic) IBOutlet UILabel *figureStyleLabelTabularLining;
-@property (weak, nonatomic) IBOutlet UILabel *figureStyleLabelTabularOldstyle;
 
 // Baseline & Cap Height
 
@@ -103,13 +106,40 @@ static NSString* const kRalewayExtraLight = @"Raleway-ExtraLight";
     NSAttributedString *stringWide = [[NSAttributedString alloc] initWithString:trackingTextWide
                                                                      attributes:attributesWide];
 
+    // Tight tracking: letters close together
     self.trackingLabelTight.attributedText = stringTight;
+
+    // Default Tracking
     self.trackingLabelDefault.attributedText = stringDefault;
+
+    // Wide (or Loose) Tracking: letters far apart
     self.trackingLabelWide.attributedText = stringWide;
 }
 
 - (void)configureFigureStyleLabels
 {
+    // Proportional: numbers are different widths
+    // Lining: numbers are “uppercase” (all the same height, sitting on the baseline)
+    self.figureStyleLabelProportionalLining.font = [self.class fontWithName:kRalewayRegular
+                                                                       size:18.0f
+                                                                 numberCase:kUpperCaseNumbersSelector
+                                                              numberSpacing:kProportionalNumbersSelector];
+
+    // Proportional: numbers are different widths
+    // Oldstyle: numbers are “lowercase” (different heights, some descend below the baseline)
+    self.figureStyleLabelProportionalOldstyle.font = [self.class fontWithName:kRalewayRegular
+                                                                         size:18.0f
+                                                                   numberCase:kLowerCaseNumbersSelector
+                                                                numberSpacing:kProportionalNumbersSelector];
+
+
+    // Using Helvetica Neue here, because it has tabular figures and Raleway does not.
+    // Tabular: numbers are all the same width, so they line up vertically in columns
+    // Lining: numbers are “uppercase” (all the same height, sitting on the baseline)
+    self.figureStyleLabelTabularLining.font = [self.class fontWithName:kHelveticaNeueRegular
+                                                                  size:18.0f
+                                                            numberCase:kUpperCaseNumbersSelector
+                                                         numberSpacing:kMonospacedNumbersSelector];
 
 }
 
@@ -125,10 +155,21 @@ static NSString* const kRalewayExtraLight = @"Raleway-ExtraLight";
     return [UIFont fontWithName:kRalewayHeavy size:24.0f];
 }
 
+/**
+ *  Generated an attributes dictionary for an @c NSAttributedString that specifies a font, size, and tracking.
+ *
+ *  @param fontName The name of the font. The same as what you would pass to -[UIFont fontWithName:size:].
+ *  @param size     The font size, in points. Must be greater than 0.0.
+ *  @param tracking The amount of tracking, in thousandths of an em. This is to ease translation from the tracking measurement from Adobe apps.
+ *
+ *  @return A dictionary to be used as attributes in an @c NSAttributedString.
+ */
 + (NSDictionary *)fontDictionaryWithFontNamed:(NSString *)fontName size:(CGFloat)size tracking:(CGFloat)tracking
 {
     NSParameterAssert(fontName != nil);
     NSParameterAssert(fontName.length > 0);
+
+    NSParameterAssert(size > 0.0f);
 
     UIFont *font = [UIFont fontWithName:fontName size:size];
 
@@ -147,6 +188,52 @@ static NSString* const kRalewayExtraLight = @"Raleway-ExtraLight";
                        };
     }
     return attributes;
+}
+
+/**
+ *  Equivalent to +[UIFont fontWithName:size:], but with the ability to specify the number case and spacing
+ *
+ *  @param name          The name of the font. The same as what you would pass to -[UIFont fontWithName:size:].
+ *  @param size          The font size, in points. Must be greater than 0.0.
+ *  @param numberCase    The number case type. One of the k*CaseNumbersSelector constants from @c SFNTLayoutTypes.h.
+ *  @param numberSpacing The number spacing type. One of the k*NumbersSelector constants from @c SFNTLayoutTypes.h.
+ *
+ *  @return A @c UIFont instance with the specified number case and spacing, if it is supported with this font.
+ */
++ (UIFont *)fontWithName:(NSString *)name size:(CGFloat)size numberCase:(int)numberCase numberSpacing:(int)numberSpacing
+{
+    NSParameterAssert(name);
+    NSParameterAssert(name.length > 0);
+    NSParameterAssert(size > 0.0f);
+
+    NSParameterAssert(numberCase == kUpperCaseNumbersSelector
+                      || numberCase == kLowerCaseNumbersSelector);
+
+    NSParameterAssert(numberSpacing == kMonospacedNumbersSelector
+                      || numberSpacing == kProportionalNumbersSelector
+                      || numberSpacing == kThirdWidthNumbersSelector
+                      || numberSpacing == kQuarterWidthNumbersSelector);
+
+    // To use the values in this dictionary, you must
+    // @import CoreText.SFNTLayoutTypes;
+    NSDictionary *numberCaseDictionary = @{
+                                           UIFontFeatureTypeIdentifierKey: @(kNumberCaseType),
+                                           UIFontFeatureSelectorIdentifierKey: @(numberCase),
+                                           };
+
+    NSDictionary *numberSpacingDictionary = @{
+                                              UIFontFeatureTypeIdentifierKey: @(kNumberSpacingType),
+                                              UIFontFeatureSelectorIdentifierKey: @(numberSpacing),
+                                              };
+
+    NSDictionary *attributes = @{
+                                 UIFontDescriptorNameAttribute: name,
+                                 UIFontDescriptorFeatureSettingsAttribute: @[ numberCaseDictionary, numberSpacingDictionary ],
+                                 };
+
+    UIFontDescriptor *descriptor = [UIFontDescriptor fontDescriptorWithFontAttributes:attributes];
+    UIFont *font = [UIFont fontWithDescriptor:descriptor size:size];
+    return font;
 }
 
 @end
